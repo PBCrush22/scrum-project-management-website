@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Diver - Login</title>
+    <link rel="icon" href="assets/logo.png">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="authenticate-user.js"></script>
+  </head>
+  <body style="background-color:#e9c6d8">
+    <div id="main">
+      <div class="nav-container">
+        <div class="w3-container"></div>
+        <div class="container">
+          <div class="col-md-12 d-flex justify-content-between align-items-center nav-links">
+            <div class="col-md-6">
+              <div class="logo-container">
+                <img src="assets/logo.png" alt="Data Diver Logo" class="logo" />
+                <h1 class="brand">Data Diver</h1>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <ul class="nav nav-tabs justify-content-end">
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+              <div class="form-group">
+                <label for="userUsername">Username</label>
+                <input type="text" class="form-control" id="userUsername" name="username" placeholder="Enter Username">
+              </div>
+              <div class="form-group">
+                <label for="userPassword">Password</label>
+                <input type="password" class="form-control" id="userPassword" name="password" placeholder="Create Password">
+              </div>
+              <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
+          </div>
+        </div>
+      </div>
+      
+        <div class="form-group text-center">
+          <a href="forgot-password.html">Forgot Password?</a>
+        </div>
+  </body>
+</html>
+<script>
+  history.pushState(null, null, location.href);
+  window.onpopstate = function () {
+      history.go(1);
+  };
+</script>

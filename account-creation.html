@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Diver - Login</title>
+    <link rel="icon" href="assets/logo.png">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="account-creation.js"></script>
+  </head>
+  <body style="background-color:#e9c6d8">
+    <div id="main">
+      <div class="nav-container">
+        <div class="w3-container"></div>
+        <div class="container">
+          <div class="col-md-12 d-flex justify-content-between align-items-center nav-links">
+            <div class="col-md-6">
+              <div class="logo-container">
+                <button id="back-button" class="btn btn-secondary" style="margin-right: 20px;">Back</button>
+                <img src="assets/logo.png" alt="Data Diver Logo" class="logo" />
+                <h1 class="brand">Data Diver</h1>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <ul class="nav nav-tabs justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="login-mainpage.html">Login</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="create_username" name="username" placeholder="Create Username">
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="create_password" name="password" placeholder="Create Password">
+              </div>
+              <button type="submit" class="btn btn-primary" id="createAccountButton">Create Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+  </body>
+</html>

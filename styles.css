@@ -1,0 +1,519 @@
+body {
+  background-color: #c7dff9;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.tag-api-colour {
+  background-color: #007bff;
+}
+.tag-backend-colour {
+  background-color: #26da26;
+}
+.tag-default-colour {
+  background-color: white;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-tabs {
+  background-color: transparent;
+  border: none;
+}
+
+.nav-link {
+  color: #333;
+  padding: 10px 20px;
+}
+
+.nav-link.active {
+  color: #007bff;
+}
+
+.card {
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Add custom CSS for the button and icon */
+.button {
+  width: 200px;
+  height: 200px;
+  background-color: #ccc; /* Gray color */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #333; /* Text color */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+.add-icon {
+  width: 40px; /* Set the desired width for the icon */
+  height: 40px; /* Set the desired height for the icon */
+  line-height: 40px; /* Center the icon vertically */
+  text-align: center; /* Center the icon horizontally */
+}
+
+.floating-window {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e9c6d8;
+  padding: 20px;
+  font-size: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  width: 60%;
+  max-height: 80%; /* Set a maximum height as a percentage of the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+
+.floating-window label,
+.floating-window input,
+.floating-window select,
+.floating-window button {
+  display: block;
+  margin: 10px 0;
+}
+
+.task-view-window {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #efe7f9;
+  padding: 20px;
+  font-size: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  width: 60%;
+  height: 80%;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.task-view-window label,
+.task-view-window input,
+.task-view-window select,
+.task-view-window button {
+  display: block;
+  margin: 10px 0;
+}
+
+.priority-low {
+  background-color: #26da26; /* Green for Low */
+}
+
+.priority-medium {
+  background-color: #ffeb3b; /* Yellow for Medium */
+}
+
+.priority-important {
+  background-color: #ff9800; /* Orange for Important */
+}
+
+.priority-urgent {
+  background-color: #f44336; /* Red for Urgent */
+}
+
+.task-item {
+  width: 205px; /* Fixed width */
+  height: 205px; /* Fixed height */
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 17px;
+  background-color: white;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 25px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* Add a pointer cursor to indicate interactivity */
+  position: relative;
+}
+
+.tag {
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: white;
+}
+
+.priority-text-low {
+  color: rgb(3, 130, 3);
+}
+.priority-text-medium {
+  color: rgb(235, 235, 72);
+}
+.priority-text-important {
+  color: orange;
+}
+.priority-text-urgent {
+  color: red;
+}
+
+.new-button {
+  background-color: #e88fda;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-filter-button {
+  margin-right: 20px;
+  margin-bottom: 100px;
+  font-size: large;
+}
+
+/* New */
+.task-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tag-api {
+  background-color: #79ff77;
+}
+
+.tag-backend {
+  background-color: #ffc078;
+}
+
+.tag-database {
+  background-color: #7ea3ff;
+}
+
+.tag-frontend {
+  background-color: #76b18e;
+}
+
+.tag-framework {
+  background-color: #c695f8;
+}
+
+.tag-testing {
+  background-color: #88b860;
+}
+
+.tag-ui {
+  background-color: #9281ff;
+}
+
+.tag-ux {
+  background-color: #f9c3f1;
+}
+
+.mt-custom {
+  margin-top: 100px; /* Adjust this value to control the amount of spacing */
+}
+
+.task-column {
+  background-color: #f0f0f0; /* Background color of the column */
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.column-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.task {
+  background-color: #fff; /* Background color of task (sticky note) */
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.task-column-container {
+  height: 500px; /* Set a fixed height for the container */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+}
+
+.edit-buttons .btn-group {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.edit-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  overflow-y: auto;
+  background-color: #efe7f9;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.edit-title {
+  margin-bottom: 20px;
+}
+
+.edit-options {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.edit-option {
+  display: flex;
+  align-items: left;
+  margin: 10px 0;
+}
+
+/* Fixed width for labels to create uniform spacing */
+.label-width {
+  width: 150px;
+}
+
+/* Style the time input elements and unit labels */
+.slider-row {
+  display: flex;
+  align-items: center;
+}
+
+.slider-row input[type="number"] {
+  width: 60px;
+  margin: 0 5px;
+}
+
+.slider-row label.unit-label {
+  margin: 0 5px;
+}
+
+.time-spent {
+  margin-left: 10px;
+  justify-content: space-between;
+  background-color: rgb(195, 196, 196);
+}
+.total-time-spent {
+  text-align: right;
+}
+
+.past-sprint-card {
+  width: 25%; /* Make each card smaller to fit 3 in a row */
+  margin-right: 2%; /* Add space between cards */
+  margin-bottom: 2%; /* Add space between rows */
+}
+
+.past-sprint-card .card-body {
+  text-align: left; /* Align text to the left */
+  padding: 5px; /* Reduce the padding to make the card smaller */
+}
+
+.sprint-card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px; /* Add margin between sprint cards */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.delete-area {
+  border: 3px dashed rgb(252, 111, 240);
+  width: 150px; /* Set the width */
+  height: 150px; /* Set the height */
+  padding: 20px;
+  text-align: center;
+  color: rgb(128, 2, 128);
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add a transition for smooth color change */
+}
+
+.close-button:hover {
+  background-color: red; /* Change background color to red when hovering */
+  color: white; /* Change text color to white when hovering */
+}
+
+.chart-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 10px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Add a transition for smooth color change */
+}
+
+.chart-button:hover {
+  background-color: red; /* Change background color to red when hovering */
+  color: white; /* Change text color to white when hovering */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fcebf5;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 1000px;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Button to open the burndown chart modal */
+.burndown-chart-button {
+  background-color: pink;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px; /* Adjust the height as needed */
+}
+
+/* Modal */
+.burndown-chart-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Burndown chart content */
+.burndown-chart-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Close button inside the modal */
+.burndown-chart-close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.burndown-chart-close-button:hover,
+.burndown-chart-close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.task-container {
+  max-height: 300px; /* Set the maximum height for the task container */
+  overflow-y: auto; /* Enable vertical scrolling when the content overflows */
+  border: 1px solid #ccc; /* Optional: Add a border for better visualization */
+}
+
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.shifted-popup {
+  margin-left: 100px; /* Adjust the value based on how much you want to shift the popup to the right */
+  /* You can also use other properties like left or transform: translateX() to achieve the shift */
+}
+
+.row {
+  margin-top: 10px; 
+  margin-left: 0.5px; 
+}
+
+.nav-link.new-button.custom-filter-button {
+  margin-bottom: 10px; 
+}
+
+.form-control.filter-dropdown, 
+.form-control.sort-dropdown {
+  width: 175px; 
+}
+

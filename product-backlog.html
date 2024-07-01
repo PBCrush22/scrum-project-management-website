@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Backlog</title>
+    <link rel="icon" href="assets/logo.png">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <script type="module" src="product-backlog.js"></script>
+    <script src="sidebar.js"></script>
+    <script type = "text/javascript" >  
+      function preventBack() { window.history.forward(); }  
+      setTimeout("preventBack()", 0);
+      window.onunload = function () { null };  
+      window.addEventListener('popstate', function(event) {
+        location.reload();
+      });
+    </script> 
+  </head>
+  <body style="background-color: #e9c6d8">
+    <!-- the following implementation of sidebar is from w3schools: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_sidebar_shift -->
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+      <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">
+        Close &times;
+      </button>
+      <button id="product_backlog_button"class="w3-bar-item w3-button">Product Backlog</button>
+      <button id="scrum_board_button" class="w3-bar-item w3-button">Scrum Board </button>
+      <button id="create_account_button" class="w3-bar-item w3-button" style="display: none;">Create Account</button>
+      <button id="team_member_button" class="w3-bar-item w3-button" style="display: none;">Team Member</button>
+    </div>
+
+    <div id="main">
+      <div class="nav-container">
+        <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">
+          &#9776;
+        </button>
+        <div class="w3-container"></div>
+        <div class="container">
+          <div
+            class="col-md-12 d-flex justify-content-between align-items-center nav-links"
+          >
+            <div class="col-md-6">
+              <div class="logo-container">
+                <img src="assets/logo.png" alt="Data Diver Logo" class="logo" />
+                <h1 class="brand">Data Diver</h1>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <ul class="nav nav-tabs justify-content-end">
+                <li class="nav-item">
+                  <button id="changePasswordLink" class="w3-bar-item w3-button" href="#">Change Password</button>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="login-mainpage.html">Log Out</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Account</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12 button-container d-flex justify-content-start align-items-center">
+          <button id="addTaskButton" class="button mr-auto">Add Task</button>
+          <div class="row">
+            <div class="nav-link new-button custom-filter-button">
+              <label for="filter">Filter:</label>
+              <select class="form-control" id="filter">
+                <option value="All">Show All</option>
+                <option value="API-filter">API</option>
+                <option value="Backend-filter">Backend</option>
+                <option value="Database-filter">Database</option>
+                <option value="Frontend-filter">Frontend</option>
+                <option value="Framework-filter">Framework</option>
+                <option value="Testing-filter">Testing</option>
+                <option value="UI-filter">UI</option>
+                <option value="UX-filter">UX</option>
+              </select>
+            </div>
+            <div class="nav-link new-button custom-filter-button">
+              <label for="sorting">Sorting:</label>
+              <select class="form-control" id="sorting">
+                <option value="Lowest to Urgent">Lowest to Urgent</option>
+                <option value="Urgent to Lowest">Urgent to Lowest</option>
+                <option value="Recent to Oldest">Recent to Oldest</option>
+                <option value="Oldest to Recent">Oldest to Recent</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="taskList" class="row">
+        <!-- Tasks will be displayed here -->
+      </div>
+    </div>
+    </div>
+    </div>
+    <!-- Floating window for task details -->
+    <div id="taskDetailsWindow" class="task-view-window task-details">
+      <div id="taskDetailsContent">
+        <!-- Task details will be displayed here -->
+      </div>
+      <button id="closeTaskDetails" class="btn btn-secondary">Close</button>
+    </div>
+    <!-- Floating window for input -->
+    <div id="floatingWindow" class="floating-window">
+      <div class="container">
+        <!-- Row 1: Task Name and Category -->
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="taskName">Task Name:</label>
+            <input type="text" class="form-control" id="taskName" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="category">Category:</label>
+            <select class="form-control" id="category">
+              <option value="Story">Story</option>
+              <option value="Bug">Bug</option>
+              <!-- Add more categories as needed -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 2: Tag and Priority -->
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="tag">Tag:</label>
+            <select class="form-control" id="tag" multiple>
+              <option value="API" class="tag-api-">API</option>
+              <option value="Backend">Backend</option>
+              <option value="Database">Database</option>
+              <option value="Frontend">Frontend</option>
+              <option value="Framework">Framework</option>
+              <option value="Testing">Testing</option>
+              <option value="UI">UI</option>
+              <option value="UX">UX</option>
+              <!-- Add more tags as needed -->
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="priority">Priority:</label>
+            <select class="form-control" id="priority">
+              <option value="Low" class="priority-low">Low</option>
+              <option value="Medium" class="priority-medium">Medium</option>
+              <option value="Important" class="priority-important">Important</option>
+              <option value="Urgent" class="priority-urgent">Urgent</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 3: Assignee and Story Point -->
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="assignee">Assignee:</label>
+            <select class="form-control" id="assignee">
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="storyPoint">Story Point:</label>
+            <div id="storyPointSlider"></div>
+            <input type="text" class="form-control" id="storyPoint" readonly/>
+          </div>
+        </div>
+  
+        <!-- Row 4: Task Stage -->
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="taskStage">Task Stage:</label>
+            <select class="form-control" id="taskStage">
+              <option value="Planning">Planning</option>
+              <option value="Development">Development</option>
+              <option value="Testing">Testing</option>
+              <option value="Integration">Integration</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 5: Task Description -->
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="taskDescription">Task Description:</label>
+            <textarea class="form-control" id="taskDescription"></textarea>
+          </div>
+        </div>
+
+        <!-- Row 6: Task Status -->
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="taskStatus">Task Status:</label>
+            <select class="form-control" id="taskStatus">
+              <option value="Not Started">Not Started</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Row 7: Save and Close Buttons -->
+        <div class="form-group col-md-12 text-right">
+          <button id="saveTaskButton" class="btn btn-primary">Save</button>
+          <button id="closeFloatingWindow" class="btn btn-secondary">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- slider for story points -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- jQuery UI -->
+<link
+  rel="stylesheet"
+  href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+/>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+    $("#storyPointSlider").slider({
+      range: "min", // Use "min" for a single handle slider
+      min: 0,  
+      max: 10, 
+      value: 5,     // Default value
+      slide: function (event, ui) {
+        // Update the input field with the slider's value
+        $("#storyPoint").val(ui.value);
+      },
+    });
+
+    // Set the initial value in the input field
+    $("#storyPoint").val($("#storyPointSlider").slider("value"));
+  });
+</script>
